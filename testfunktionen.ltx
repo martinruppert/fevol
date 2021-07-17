@@ -1,0 +1,198 @@
+\documentclass{report}
+\usepackage{bezier}
+\usepackage{german}
+\usepackage{pictex}
+%\input prepic
+%\input pictex
+%\input postpic
+
+\begin{document}
+\section{Testfunktionen} 
+ 
+\begin{enumerate} 
+ 
+\item {\bf{Parabolisches ( Bananen- ) Tal nach Rosenbrock}}
+
+\begin{eqnarray} 
+F({\underline{x}})  =  100 \cdot {({x}_{1}^{2} - {x}_{2})}^{2} + {(1 - {x}_{1})}^{2}
+\nonumber
+\end{eqnarray} 
+ 
+\begin{tabular}{*{14}{r}}
+$ \underline{x}_{0} $ & = & ( & -1.2 & , & -1.0 & ) & { } & { } & { } & , & { } & { } \\
+                      &   & ( & -1.2 & , &  1.0 & ) & { } & { } & { } & , & { } & { } \\
+                      &   & ( & -1.2 & , &  0.0 & ) & { } & { } & { } & , & { } & { } \\
+                      &   & ( &  0.0 & , &  0.0 & ) & { } & { } & { } & , & { } & { } \\
+                      &   & ( &  2.0 & , &  2.0 & ) & { } & { } & { } & , & { } & { } \\
+                      &   & ( &  3.0 & , &  3.0 & ) &  ,  &  (  & 8.0 & , & 8.0 & )  \\
+\hfill \\
+$ \underline{x}^{*} $ & = & ( &  1.0 & , &  1.0 & ) & { } & { } & { } & { } & { } & { } \\
+\hfill \\
+$ F{(\underline{x}^{*})}^{'} $ & = & { } & 0 & { } & { } & { } & { } & { } & { } & { } & { } & { } \\
+\end{tabular}
+
+Abbrechen, wenn
+\begin{eqnarray}
+F(\underline{x}_{E}) & < & 1 \cdot {10^{-10}} ,   \nonumber
+\end{eqnarray}
+
+dann Iterationszahl merken
+
+oder, wenn
+\begin{eqnarray}
+\mbox{Iterationszahl}  >  10000 ,  \nonumber
+\end{eqnarray}
+
+dann Funktionswert merken.
+
+\item {\bf{Kubisches Tal nach Leon}}
+\begin{eqnarray}
+F({\underline{x}}) & = & 100 \cdot {({x}_{1}^{3} - {x}_{2})}^{2} +
+{(1-{x}_{1})}^{2} \nonumber \\
+\underline{{x}^{0}} & = & \mbox{wie oben} \nonumber \\
+& \underline{{x}^{*}} , F(\underline{{x}^{*}}) & \mbox{wie oben} \nonumber
+\end{eqnarray}
+
+\item {\bf{Exponentialfunktion nach Box}}
+\begin{eqnarray}
+F({\underline{x}})  =  \sum_{i = 1}^{10} [ \exp ( - \frac{i}{10} \cdot
+x_{1} ) - \exp ( - \frac{i}{10} \cdot x_{2} ) \nonumber \\
+{- \exp ( - \frac{i}{10} ) + \exp ( - i ) ]}^{2} \nonumber
+\end{eqnarray}
+
+\begin{tabular}{*{20}{r}}
+$\underline{x}^{0} $ & = & ( & 5 & , & 0 & )  ;  ( & 0 & , & 0 & ) ;
+( & 0 & , & 20 & ) & ; \\
+\hfill
+\end{tabular}
+
+\begin{tabular}{*{8}{c}}
+$ \underline{x}^{*} $ & = & ( & 1 & , & 10 & ) \\
+$F(\underline{x}^{*}) $ & = & 0 & { } & { } & { } & { } \\
+\end{tabular}
+
+\item {\bf{Klippenfunktion nach Rosenbrock}}
+\begin{eqnarray}
+F(\underline{x}) & = & \left( {\frac{x_{1} - 3}{100}}\right)^{2} - (
+x_{1} - x_{2} ) + \exp ( 20 ( x_{1} - x_{2} ) ) \nonumber \\
+\underline{x}^{*} & = & ( 3.0 , 3.14978 ) \qquad , \qquad
+F(\underline{x}^{*}) = 0.1997866 \ldots \nonumber
+\end{eqnarray}
+
+\newpage
+
+\begin{figure}
+\unitlength1cm
+\begin{minipage}{10cm}
+\begin{picture}(10,10)
+\beginpicture
+\setcoordinatesystem units <1cm,1cm> point at 0 0
+\setplotarea x from 0 to 10, y from 0 to 10
+\unitlength1cm
+\setlinear
+\put {Sicht} [Bl] at 0.5 0.5
+\put {$x_{2}$} [Bl] at 1 9
+\put {$x_{1}$} [Bl] at 9 1
+\put {a} [Bl] at 7 4.5
+\thicklines
+\put {\vector(1,1){0.5}} [Bl] at 1 1
+\put {\line(1,1){7.5}} [Bl] at 1.5 1.5
+\put {\vector(1,0){9}} [Bl] at 0.5 2
+\put {\vector(0,1){8}} [Bl] at 2 1.5
+\put {\vector(-1,1){1}} [Bl] at 5.5 5.5
+\put {\vector(1,-1){1}} [Bl] at 5.5 5.5
+\endpicture
+\end{picture}
+\caption{Bildbeschreibung 1}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\unitlength1cm
+\begin{minipage}{10cm}
+\begin{picture}(10,10)
+\beginpicture
+\setcoordinatesystem units <1cm,1cm> point at 0 0
+\setplotarea x from 0 to 10, y from 0 to 7
+\unitlength1cm
+\setquadratic
+\put {F} [Bl] at 2 7
+\put {a} [Bl] at 8.5 0.5
+\thicklines
+\put {\vector(1,0){7.5}} [Bl] at 1.5 1.5
+\put {\vector(0,1){6}} [Bl] at 1.5 1.5
+\plot 3 2 4 4.5 6 6 /
+\put {\line(0,1){5}} [Bl] at 3 2
+\endpicture
+\end{picture}
+\caption{Bildbeschreibung 2}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{tabular}{*{14}{r}}
+$\underline{x}^{0} $ & = & ( & 0 , -1 & ) ; ( & -1.57 , -1.73 & ) ; ( & 0 , 0 & ) \\
+\end{tabular}
+
+\item {\bf{Woods - Funktion nach Colville}}
+\begin{eqnarray}
+F(\underline{x}) & = & 100 ( {x_{1}}^{2} - x_{2} )^{2} + ( 1 - x_{1} )^{2} 
+\nonumber \\
+ & &  +  90 ( {x_{3}}^{2} - x_{4} )^{2} + ( 1 - x_{3} )^{2} \nonumber \\
+ & &  +  10.1 [ ( 1 - x_{2} )^{2} + ( 1 - x_{4} )^{2} ] \nonumber \\
+ & &  +  19.8 ( 1 - x_{2} ) \cdot ( 1 - x_{4} ) \nonumber
+\end{eqnarray}
+
+\begin{tabular}{*{12}{r}}
+${\underline{x}}_{0}$ & = & ( & - 3 & , & - 1 & , & - 3 & , & - 1 & ) \\
+& { } & ( & - 1.2 & , & 1 & , & - 1.2 & , & 1.0 & ) \\
+& { } & ( & - 3 & , & 1 & , & - 1 & , & 1 & ) \\
+& { } & ( & 3 & , & 1 & , & 3 & , & 1 & )
+\end{tabular}
+
+\begin{tabular}{*{12}{r}}
+${\underline{x}}^{*}$ & = & ( & 1 & , & 1 & , & 1 & , & 1 & )
+\end{tabular}
+ 
+\begin{tabular}{*{4}{r}}
+$ F(\underline{x}^{*}) $ & = & 0
+\end{tabular}
+
+\item {\bf{Funktion nach Powell}}
+\begin{eqnarray}
+F(\underline{x}) = ( x_{1} + 10x_{2} )^{2} + 5 ( x_{3} - x_{4} )^{2}
+\nonumber \\
++ ( x_{2} - 2x_{3} )^{4} + 10 ( x_{1} - x_{4} )^{4}
+\nonumber
+\end{eqnarray}
+
+\begin{tabular}{*{12}{r}}
+$\underline{x}_{0}$ = ( 3 , -1 ; 0 , 1  ) ; ( -1 , -10 ; 0 , 1 ); \\
+( 1 , 1 ; 1 , 1 ) ; ( 10 , 10 ; 10 , 10 ); \\
+\end{tabular}
+
+\begin{tabular}{*{12}{r}}
+$\underline{x}^{*}$ = ( 0 , 0 ; 0 , 0 ) ; $F(\underline{x}^{*})$ =0
+\end{tabular}
+
+\item {\bf{Funktion nach Kreisselmeier}}
+\begin{eqnarray}
+F(\underline{x}) & = & z_{1} + \sum_{i = 2}^{9} {z_{i}}^{2} \nonumber \\
+z_{1} & = & 100 {[ x_{2} - x_{1} \sin (x_{1} ) ]}^{2} + {\Bigl( \frac{x_{1} -
+6}{6} \Bigr)}^{2} \nonumber \\
+z_{i} & = & x ( i + 1 ) - z ( i - 1 ) \qquad , i = 2 \ldots 9
+\nonumber
+\end{eqnarray}
+
+\begin{tabular}{*{16}{r}}
+$ \underline{x}_{0} $ & = & ( & 0 & , & 0.2 & , & 2 & , & 0 & , & $ \ldots $ & , & 0 & ) \\
+$ \underline{x}^{*} $ & = & ( & 6.0 & , & -1.67 & , & 0 & , & 0 & , & $ \dots $ &  , & 0 & ) \\
+\end{tabular}
+
+% \begin{tabular}
+F( $ \underline{x}^{*} $ ) = 0
+% \end{tabular}
+
+\end{enumerate} 
+\end{document}

@@ -1,0 +1,14 @@
+Hier findet sich die jeweils aktuellste Evolutionsstrategie
+fevol.w, die Beispiele minibeispiel.w, lingl.w und die
+Benchmarkfunktionen benchmarks.w.
+
+Bauen der Programme benchmarks, lingl und minibeispiel
+erfolgt durch Aufruf von
+
+make
+
+ohne Argumente,
+
+make doc
+
+erzeugt die pdfs von benchmarks, fevol, lingl und minibeispiel.
